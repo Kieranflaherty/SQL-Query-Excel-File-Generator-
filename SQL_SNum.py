@@ -9,10 +9,10 @@ today = datetime.now()
 warnings.filterwarnings('ignore')
 
 #Database Credentials
-server = 'EUIRLBFTTM'
-database = 'BectonDickinson'
-username = 'remote'
-password = 'Becton2018'
+server = 'your server name'
+database = 'your database name'
+username = 'your username'
+password = 'your password'
 
 #Establish Connection to SQL Database
 print("Connecting to OBI Database...")
@@ -20,8 +20,8 @@ connection = pyodbc.connect('DRIVER={SQL Server};SERVER='+server+';DATABASE='+da
 print("Connection Successful")
 
 #Setup SQL Queries
-serialnum = "SELECT * FROM [BectonDickinson].[dbo].[ProcessDataOutput0803] AS _8 WHERE _8.S80304_LsrMark_SeqNum = ? ORDER BY L8_DataTimestamp DESC;"
-ewo = "SELECT * FROM [BectonDickinson].[dbo].[ProcessDataOutput0803] AS _8 WHERE _8.S80304_LsrMark_String LIKE '%?%' ORDER BY L8_DataTimestamp DESC;"
+serialnum = "Enter your first query"
+ewo = "Enter your second query"
 
 #SERIAL NUMBER SEARCH
 def serial_query(connection, serialnum):
@@ -33,7 +33,7 @@ def serial_query(connection, serialnum):
     writer.save()
     print("\nQuery Successful, file has been generated.\nFile is stored here", os.getcwd())
 
-#EWO NUMBER SEARCH
+#BATCH NUMBER SEARCH
 def ewo_query(connection, ewo):
     print("\nExecuting Query...")
     cursor = connection.cursor()
